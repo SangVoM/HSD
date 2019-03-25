@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Thông tin tài khoản</h2>
+			<form action="/user/profile" method="post">
+				<input type="hidden" name="_csrf" value="{{csrfToken}}">
+				<div class="form-group">
+					<label for="fullname">Tên</label>
+					<input class="form-control" type="text" name="fullname" value="{{user.name}}">
+				</div>
+
+				<div class="form-group">
+					<label for="phone">Số điện thoại</label>
+					<input class="form-control" type="text" name="phone" value="{{user.phone}}" readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="avatar">Avatar</label>
+					<input class="form-control" type="file" name="avatar" value="{{user.image}}" readonly>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success" type="submit">Cập nhật</button>
+				</div>
+			</form>
+			<p><span>Tên:</span><span>{{user.name}}</span></p>
+			<p><span>Số điện thoại:</span><span>{{user.phone}}</span></p>
+			<p><span>Avatar:</span><span></span></p>
+		</div>
+	</div>
+    <div class="col-sm-6">
+        <div class="well">
+            <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+
+            <p>
+                <strong>id</strong>: <%= user.facebook.id %><br>
+                <strong>token</strong>: <%= user.facebook.token %><br>
+                <strong>email</strong>: <%= user.facebook.email %><br>
+                <strong>name</strong>: <%= user.facebook.name %>
+            </p>
+
+        </div>
+    </div>
+</div>
+<strong>id</strong>: {{user._id }}<br>
+<strong>password</strong>:{{user.password }}

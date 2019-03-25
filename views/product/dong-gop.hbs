@@ -1,0 +1,46 @@
+<main class="main dong-gop">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 wrap-content-login">
+                <h3>Thêm Barcode - Đóng góp sản phẩm</h3>
+                {{# if messages }}
+                <div class="alert alert-success">
+                    {{ messages }}
+                </div>
+                {{/if}}
+                <form action="/product/dong-gop" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="barcode">Barcode</label>
+                        <input type="text" name="barcode" class="form-control" placeholder="Nhập barcode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ten_san_pham">Tên sản phẩm</label>
+                        <input type="text" name="ten_san_pham" class="form-control" placeholder="Tên sản phẩm" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Hình ảnh</label>
+                        <input type="file" name="image" id="file" class="form-control" placeholder="Hình ảnh" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="form-control text-center btn btn-success" type="submit">Thêm</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    // Check maxFilesSize
+    var uploadField = document.getElementById("file");
+
+    uploadField.onchange = function() {
+        if(this.files[0].size > (10 * 1024 * 1024)){
+            alert("File có dung lượng quá lớn - Vui lòng chọn ảnh khác !");
+            this.value = "";
+        };
+    };
+</script>

@@ -1,0 +1,153 @@
+
+<div class="bar-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+                <button type="button" class="btn btn-info btn-default btn-success" data-toggle="modal" data-target="#myModal-1"><span class="glyphicon glyphicon-plus"></span>Thêm sản phẩm mới</button>
+
+                <div class="modal fade" id="myModal-1" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title text-center">Vui lòng tải ứng dụng để sử dụng chức năng này</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><a href="#"><img src="../images/google-play.png" alt=""></a></p>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <p><a href="#"><img src="../images/app-store.png" alt=""></a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="main">
+    <div class="container">
+        <div id="exTab2" class="container">
+            <div class="wrap-tabs">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a  href="#1" data-toggle="tab">Tất cả sản phẩm</a>
+                    </li>
+                    <li><a href="#2" data-toggle="tab">Còn lại một tuần</a>
+                    </li>
+                    <li><a href="#3" data-toggle="tab">Sản phẩm đã hết hạn</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content ">
+                <div class="tab-pane active" id="1">
+                    <div class="table-responsive">
+                        <table class="table table-fixed table-product">
+                            <thead>
+                            <th>STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Ngày hết hạn</th>
+                            <th>Số ngày còn lại</th>
+                            <th>Mức độ an toàn</th>
+                            </thead>
+                            <tbody>
+                            {{# each allProduct as |p|}}
+                                <tr class="
+                            {{#compare p.daysleft 0 operator='<'}}danger
+                            {{else compare p.daysleft 2 operator='<='}}warning
+                            {{else compare p.daysleft 2 operator='>'}}success{{/compare}}">
+                                    <td class="product stt"></td>
+                                    <td class="product ten">{{p.namechanged}}</td>
+                                    <td class="product hinhanh"><img src="https://hansudung.com/getimage/?image={{p.imagechanged}}" alt=""></td>
+                                    <td class="product ngayhethan timestamp">{{convert p.expiretime}}</td>
+                                    <td class="product songayconlai">{{p.daysleft}}</td>
+                                    <td class="product mucdoantoan"><span class="label
+                                {{#compare p.daysleft 0 operator='<'}}label-danger
+                                {{else compare p.daysleft 2 operator='<='}}label-warning
+                                {{else compare p.daysleft 2 operator='>'}}label-success{{/compare}}">
+
+                                        {{#compare p.daysleft 0 operator='<'}}Đã hết hạn sử dụng
+                                        {{else compare p.daysleft 2 operator='<='}}Nên sử dụng ngay
+                                        {{else compare p.daysleft 2 operator='>'}}An toàn{{/compare}}
+
+                                    </span></td></td>
+                                </tr>
+                            {{/each}}
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="2">
+                    <div class="table-responsive">
+                        <table class="table table-fixed table-product">
+                            <thead class="block-1199">
+                            <th>STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Ngày hết hạn</th>
+                            <th>Số ngày còn lại</th>
+                            <th>Mức độ an toàn</th>
+                            </thead>
+                            <tbody>
+
+                            {{# each listProductDayLeft as |p|}}
+                                <tr class="warning">
+                                    <td class="product stt"></td>
+                                    <td class="product ten">{{p.namechanged}}</td>
+                                    <td class="product hinhanh"><img src="https://hsdvn.ga/getimage/?image={{p.imagechanged}}" alt=""></td>
+                                    <td class="product ngayhethan timestamp">{{convert p.expiretime}}</td>
+                                    <td class="product songayconlai">{{p.daysleft}}</td>
+                                    <td class="product mucdoantoan"><span class="label label-warning">Cần sử dụng ngay</span></td></td>
+                                </tr>
+                            {{/each}}
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="3">
+                    <div class="table-responsive">
+                        <table class="table table-fixed table-product">
+                            <thead class="block-1199">
+                            <th>STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Ngày hết hạn</th>
+                            <th>Số ngày còn lại</th>
+                            <th>Mức độ an toàn</th>
+                            </thead>
+                            <tbody>
+                            {{# each listProductExpired as |p|}}
+                                <tr class="danger">
+                                    <td class="product stt"></td>
+                                    <td class="product ten">{{p.namechanged}}</td>
+                                    <td class="product hinhanh"><img src="https://hsdvn.ga/getimage/?image={{p.imagechanged}}" alt=""></td>
+                                    <td class="product ngayhethan timestamp">{{convert p.expiretime}}</td>
+                                    <td class="product songayconlai">{{p.daysleft}}</td>
+                                    <td class="product mucdoantoan"><span class="label label-danger">Cần sử dụng ngay</span></td></td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

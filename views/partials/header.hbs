@@ -1,0 +1,54 @@
+<header>
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="logo">
+                        <a href="/"><img src="../images/logo2.png" alt=""></a>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="banner-top">
+                        <img src="../images/banner-top.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="menu-main">
+                        <span class="bar"><i class="fa fa-bars" aria-hidden="true"></i> MENU</span>
+                        <a href="/" class="home"><i class="fa fa-home" aria-hidden="true"></i>Trang chủ</a>
+                        <ul class="level-1">
+                            <li class="li_home"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Trang chủ</a></li>
+                            {{# if login}}
+                                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Tùy chọn</a>
+                                    <ul>
+                                        <li><a href="/product/quan-ly-san-pham"><i class="fa fa-product-hunt" aria-hidden="true"></i>Quản lý sản phẩm</a></li>
+                                        <li><a href="/user/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                            {{else}}
+                                <li><a href="/user/signin"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
+                                <li><a href="/user/signup"><i class="fa fa-registered" aria-hidden="true"></i>Đăng ký</a></li>
+                            {{/if}}
+                            <li class="has-children"><a href="#"><i class="fa fa-download" aria-hidden="true"></i>Tải ứng dụng</a>
+                                <ul class="level-2">
+                                    <li><a href="https://play.google.com/store/apps/details?id=com.finger.hsd" target="_blank"><i class="fa fa-android" aria-hidden="true"></i>Android</a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-apple" aria-hidden="true"></i>IOS</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/product/quan-ly-san-pham"><i class="fa fa-download" aria-hidden="true"></i>Quản lý sản phẩm</a></li>
+                            <li><a href="/product/dong-gop"><i class="fa fa-plus" aria-hidden="true"></i>Đóng góp sản phẩm</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
